@@ -28,6 +28,10 @@ To install the plugin, follow these instructions.
 
 When used with Lazysizes:
 
+```
 <img class="lazyload" src="{{ craft.svg_placholder.generate({height:500,width:'300'}) }}" data-src="path-to-real-image-500x300.jpg" />
+```
+
+---
 
 Brought to you by [Matthew Blode](https://matthewblode.com)
