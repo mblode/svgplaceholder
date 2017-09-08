@@ -1,0 +1,47 @@
+{
+    "name": "mblode/svgplaceholder",
+    "description": "SVG Placeholder",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "svgplaceholder"
+    ],
+    "support": {
+        "docs": "https://github.com/MBLODE/svgplaceholder/blob/master/README.md",
+        "issues": "https://github.com/MBLODE/svgplaceholder/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew Blode",
+            "homepage": "https://matthewblode.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.23"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "mblode\\svgplaceholder\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "svgplaceholder",
+        "handle": "svgplaceholder",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/MBLODE/svgplaceholder/master/CHANGELOG.md",
+        "class": "mblode\\svgplaceholder\\Svgplaceholder"
+    }
+}
