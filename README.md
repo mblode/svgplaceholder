@@ -1,8 +1,6 @@
-# svgplaceholder plugin for Craft CMS 3.x
+# SvgPlaceholder plugin for Craft CMS 3.x
 
-SVG Placeholder
-
-![Screenshot](resources/img/plugin-logo.png)
+A plugin which generates an invisible SVG of specific dimensions for use when lazyloading images in Craft CMS templates.
 
 ## Requirements
 
@@ -18,26 +16,18 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require MBLODE/svgplaceholder
+        composer require mblode/svgplaceholder
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for svgplaceholder.
 
-## svgplaceholder Overview
+## Usage
 
--Insert text here-
+{{ craft.svg_placholder.generate({height:500,width:'300'}) }}
 
-## Configuring svgplaceholder
+## Example
 
--Insert text here-
+When used with Lazysizes:
 
-## Using svgplaceholder
-
--Insert text here-
-
-## svgplaceholder Roadmap
-
-Some things to do, and ideas for potential features:
-
-* Release it
+<img class="lazyload" src="{{ craft.svg_placholder.generate({height:500,width:'300'}) }}" data-src="path-to-real-image-500x300.jpg" />
 
 Brought to you by [Matthew Blode](https://matthewblode.com)
