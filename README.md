@@ -30,7 +30,7 @@ To install the plugin, follow these instructions.
 
 When used with Lazysizes and a macro:
 
-_macros/utilities.html
+*_macros/utilities.html*
 ```
 {% macro lazyLoadImage(element, transform) %}
         {% cache using key element.id %}
@@ -39,7 +39,7 @@ _macros/utilities.html
 {% endmacro %}
 ```
 
-index.html
+*index.html*
 ```
 {% import '_macros/utilities' as utils %}
 
