@@ -28,10 +28,24 @@ To install the plugin, follow these instructions.
 
 ## Example
 
-When used with Lazysizes:
+When used with Lazysizes and a macro:
 
+_macros/utilities.html
 ```
-<img class="lazyload" src="{{ craft.svg_placholder.generate({height:500,width:'300'}) }}" data-src="path-to-real-image-500x300.jpg" />
+{% macro lazyLoadImage(element, transform) %}
+        {% cache using key element.id %}
+            <img class="lazyload" src="{{ craft.svgplaceholder.generate({ height: element.height(transform), width: element.width(transform) }) }}" data-src="{{ element.url(transform) }}" alt="{{ element.title }}">
+        {% endcache %}
+{% endmacro %}
+```
+
+index.html
+```
+{% import '_macros/utilities' as utils %}
+
+...
+
+{{ utils.lazyLoadImage(image, 'imageTransformName') }}
 ```
 
 ---
