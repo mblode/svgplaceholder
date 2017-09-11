@@ -36,4 +36,4 @@ When used with Lazysizes:
 
 Brought to you by [Matthew Blode](https://matthewblode.com)
 
-Based on the Craft CMS 2 plugin [SVG Placeholder](https://github.com/daltonrooney/svgplaceholder)
+Based on the Craft CMS 2 plugin: [SVG Placeholder](https://github.com/daltonrooney/svgplaceholder)
