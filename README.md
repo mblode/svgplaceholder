@@ -1,4 +1,4 @@
-# SvgPlaceholder plugin for Craft CMS 3.x
+# SVG Placeholder plugin for Craft CMS 3.x
 
 A plugin which generates an invisible SVG of specific dimensions for use when lazyloading images in Craft CMS templates.
 
