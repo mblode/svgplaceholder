@@ -2,7 +2,7 @@
     "name": "mblode/svgplaceholder",
     "description": "A plugin which generates an invisible SVG of specific dimensions for use when lazyloading images in Craft CMS templates.",
     "type": "craft-plugin",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "keywords": [
         "craft",
         "cms",
@@ -21,8 +21,9 @@
             "homepage": "https://matthewblode.com"
         }
     ],
+    "prefer-stable": true,
     "require": {
-        "craftcms/cms": "~3.0.0-beta.23"
+        "craftcms/cms": "^3.0.0-RC1",
     },
     "repositories": [
         {
