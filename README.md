@@ -23,7 +23,7 @@ To install the plugin, follow these instructions.
 ## Usage
 
 ```
-{{ craft.svg_placholder.generate({height:500,width:'300'}) }}
+{{ craft.svgplaceholder.generate({height:500,width:'300'}) }}
 ```
 
 ## Example
