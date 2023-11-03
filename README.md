@@ -26,6 +26,11 @@ To install the plugin, follow these instructions.
 {{ craft.svgplaceholder.generate({height:500,width:'300'}) }}
 ```
 
+Optionally add a background color with the fill attribute: 
+```
+{{ craft.svgplaceholder.generate({height:500,width:'300'},'#CCCCCC') }}
+```
+
 ## Example
 
 When used with Lazysizes and a macro:
