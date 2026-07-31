@@ -55,6 +55,6 @@ When used with Lazysizes and a macro:
 
 ---
 
-Brought to you by [Matthew Blode](https://matthewblode.com)
+Brought to you by [Matthew Blode](https://blode.co)
 
 Based on the Craft CMS 2 plugin: [SVG Placeholder](https://github.com/daltonrooney/svgplaceholder)
