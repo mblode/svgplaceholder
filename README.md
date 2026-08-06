@@ -1,60 +1,74 @@
-# SVG Placeholder plugin for Craft CMS 3.x
+<div align="center">
 
-A plugin which generates an invisible SVG of specific dimensions for use when lazyloading images in Craft CMS templates.
+# SVG Placeholder
 
-## Requirements
+**Generates an invisible SVG of exact dimensions to hold the space while a Craft image lazyloads**
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+One Twig call returns a base64 data URI you drop straight into a `src` attribute.
 
-## Installation
+<p align="center">
+  <a href="https://packagist.org/packages/mblode/svgplaceholder">
+    <img src="https://img.shields.io/packagist/v/mblode/svgplaceholder?style=flat&colorA=000000&colorB=000000" />
+  </a>
+  <a href="https://github.com/mblode/svgplaceholder/blob/master/LICENSE.md">
+    <img src="https://img.shields.io/github/license/mblode/svgplaceholder?style=flat&colorA=000000&colorB=000000" />
+  </a>
+</p>
 
-To install the plugin, follow these instructions.
+</div>
 
-1. Open your terminal and go to your Craft project:
+## Install
 
-        cd /path/to/project
+```bash
+composer require mblode/svgplaceholder
+```
 
-2. Then tell Composer to load the plugin:
+Run that in your Craft project root, then install SVG Placeholder from Settings, Plugins in the control panel.
 
-        composer require mblode/svgplaceholder
+## Quickstart
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for svgplaceholder.
+```twig
+<img src="{{ craft.svgplaceholder.generate({ width: 300, height: 500 }) }}">
+```
+
+That renders a transparent 300 by 500 SVG as a base64 data URI, so the browser reserves the right space before the real image arrives.
 
 ## Usage
 
-```
-{{ craft.svgplaceholder.generate({height:500,width:'300'}) }}
+Pass a color as the second argument to get a visible block instead of a transparent one:
+
+```twig
+{{ craft.svgplaceholder.generate({ width: 300, height: 500 }, '#cccccc') }}
 ```
 
-Optionally add a background color with the fill attribute: 
-```
-{{ craft.svgplaceholder.generate({height:500,width:'300'},'#CCCCCC') }}
-```
+With a JS lazyloader such as lazysizes, read the dimensions off the transformed asset:
 
-## Example
-
-When used with Lazysizes and a macro:
-
-*_macros/utilities.html*
-```
+```twig
 {% macro lazyLoadImage(element, transform) %}
-        {% cache using key element.id %}
-            <img class="lazyload" src="{{ craft.svgplaceholder.generate({ height: element.height(transform), width: element.width(transform) }) }}" data-src="{{ element.url(transform) }}" alt="{{ element.title }}">
-        {% endcache %}
+    {% cache using key element.id %}
+        <img class="lazyload"
+            src="{{ craft.svgplaceholder.generate({ width: element.width(transform), height: element.height(transform) }) }}"
+            data-src="{{ element.url(transform) }}"
+            alt="{{ element.title }}">
+    {% endcache %}
 {% endmacro %}
 ```
 
-*index.html*
-```
-{% import '_macros/utilities' as utils %}
+## Requirements
 
-...
+- Craft CMS 3. `composer.json` requires `craftcms/cms ^3.0.0-RC1`, and the plugin has never been updated for Craft 4 or later.
+- Nothing else. The SVG is assembled and base64 encoded in PHP, with no build step and no extra extension.
 
-{{ utils.lazyLoadImage(image, 'imageTransformName') }}
-```
+## Notes
+
+- Browsers now cover most of this without a plugin: `loading="lazy"` on an `<img>` with `width` and `height` set, or a CSS `aspect-ratio`, reserves the space on its own. This is still useful where a JS lazyloader needs a real `src` to swap out.
+- Based on the Craft 2 plugin [SVG Placeholder](https://github.com/daltonrooney/svgplaceholder) by Dalton Rooney.
+- Last released in 2017, and unmaintained since.
+
+## License
+
+MIT
 
 ---
 
-Brought to you by [Matthew Blode](https://blode.co)
-
-Based on the Craft CMS 2 plugin: [SVG Placeholder](https://github.com/daltonrooney/svgplaceholder)
+Crafted by [<img src="https://blode.co/avatar-circle.png" width="20" align="top" />](https://blode.co) [Matthew Blode](https://blode.co)
